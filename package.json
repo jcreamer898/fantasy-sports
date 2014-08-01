@@ -1,5 +1,5 @@
 {
-  "name": "fantasy-sports",
+  "name": "fantasysports",
   "description": "A wrapper for the Yahoo Fantasy API for Express.js.",
   "version": "0.1.1",
   "homepage": "https://github.com/jcreamer898/fantasy-sports",

@@ -3,7 +3,7 @@
 The best project ever.
 
 ## Getting Started
-Install the module with: `npm install FantasySports`
+Install the module with: `npm install fantasy-sports`
 
 ```javascript
 var FantasySports = require('FantasySports');
