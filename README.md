@@ -1,4 +1,4 @@
-# FantasySports [![Build Status](https://secure.travis-ci.org/jonathancreamer/FantasySports.png?branch=master)](http://travis-ci.org/jonathancreamer/FantasySports)
+# FantasySports [![Build Status](https://secure.travis-ci.org/jcreamer898/FantasySports.png?branch=master)](http://travis-ci.org/jcreamer898/FantasySports)
 
 The best project ever.
 
@@ -7,7 +7,7 @@ Install the module with: `npm install FantasySports`
 
 ```javascript
 var FantasySports = require('FantasySports');
-FantasySports.awesome(); // "awesome"
+FantasySports.awesome(); // "awesome!"
 ```
 
 ## Documentation
