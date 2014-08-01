@@ -1,0 +1,45 @@
+{
+  "name": "fantasy-sports",
+  "description": "A wrapper for the Yahoo Fantasy API for Express.js.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jcreamer898/fantasy-sports",
+  "author": {
+    "name": "Jonathan Creamer",
+    "email": "matrixhasyou2k4@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jcreamer898/fantasy-sports.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jcreamer898/fantasy-sports/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/jcreamer898/fantasy-sports/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/index",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt": "~0.4.5",
+    "grunt-mocha-test": "^0.11.0",
+    "expect.js": "^0.3.1",
+    "sinon": "^1.10.3"
+  },
+  "keywords": [],
+  "dependencies": {
+    "oauth": "jcreamer898/node-oauth",
+    "underscore": "^1.6.0",
+    "q": "^1.0.1"
+  }
+}
