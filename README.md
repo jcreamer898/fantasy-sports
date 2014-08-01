@@ -1,4 +1,4 @@
-# FantasySports [![Build Status](https://secure.travis-ci.org/jcreamer898/FantasySports.png?branch=master)](http://travis-ci.org/jcreamer898/FantasySports)
+# FantasySports [![Build Status](https://secure.travis-ci.org/jcreamer898/fantasy-sports.png?branch=master)](http://travis-ci.org/jcreamer898/fantasy-sports)
 
 The best project ever.
 
