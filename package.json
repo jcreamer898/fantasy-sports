@@ -1,7 +1,7 @@
 {
   "name": "fantasysports",
   "description": "A wrapper for the Yahoo Fantasy API for Express.js.",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "homepage": "https://github.com/jcreamer898/fantasy-sports",
   "author": {
     "name": "Jonathan Creamer",
