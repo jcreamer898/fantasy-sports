@@ -191,7 +191,7 @@ describe("FantasySports", function() {
 
             sinon.stub(FantasySports.auth, "getOAuth")
                 .returns({
-                    post: function(url, accessToken, accessTokenSecret, data, callback) {
+                    post: function(url, accessToken, accessTokenSecret, data, dataType, callback) {
                         callback(null, {
                             success: true
                         });
