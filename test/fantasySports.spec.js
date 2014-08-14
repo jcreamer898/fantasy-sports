@@ -72,6 +72,19 @@ describe("FantasySports", function() {
 
             FantasySports.auth.getOAuth.restore();
         });
+
+        it("should tell whether a user is authenticated", function() {
+            var req = {
+                    session: {},
+                },
+                res = {};
+
+            expect(!FantasySports.request(req, res).isAuthenticated()).to.be.ok();
+
+            req.session.oauthAccessToken = "abc123";
+
+            expect(FantasySports.request(req, res).isAuthenticated()).to.be.ok();
+        });
     });
 
     describe("Request", function() {
@@ -163,6 +176,46 @@ describe("FantasySports", function() {
                 .api("users;use_login=1/games;game_keys=nfl/leagues?format=json")
                 .done(function(data) {  
                     expect(data.players.length).to.be(3);
+                });
+
+            FantasySports.auth.getOAuth.restore();
+        });
+
+        it("should accept posts", function () {
+            var request = {
+                    session: { 
+                        oauthAccessToken: "abc123"
+                    }
+                },
+                response = {};
+
+            sinon.stub(FantasySports.auth, "getOAuth")
+                .returns({
+                    post: function(url, accessToken, accessTokenSecret, data, callback) {
+                        callback(null, {
+                            success: true
+                        });
+                    }
+                });
+
+            FantasySports
+                .request(request, response)
+                .api("users;use_login=1/games;game_keys=nfl/leagues?format=json", {
+                    fantasy_content: {
+                        transaction: {
+                            type: "add",
+                            player: {
+                                player_key: "123",
+                                transaction_data: {
+                                    type: "add",
+                                    destination_team_key: "team1"
+                                }
+                            }
+                        }
+                    }
+                })
+                .done(function(data) {  
+                    expect(data.success).to.be.ok();
                 });
 
             FantasySports.auth.getOAuth.restore();
