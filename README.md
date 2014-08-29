@@ -19,7 +19,7 @@ FantasySports.options({
     "oauthKey": process.env.OAUTHKEY,
     "oauthSecret": process.env.OAUTHSECRET,
     "version": "1.0",
-    "callback": "http://yourwebsite.com//auth/oauth/callback",
+    "callback": "http://yourwebsite.com/auth/oauth/callback",
     "encryption": "HMAC-SHA1"
 };);
 ```
