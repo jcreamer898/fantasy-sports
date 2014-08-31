@@ -74,6 +74,47 @@ exports.myTeams = function(req, res) {
 
 The data model for the Yahoo API is as weird as I've ever seen... hence stuff like `var leagueData = data.fantasy_content.users[0].user[1].games[0].game[1].leagues,`.
 
+## POST/PUT
+You can pass an object full of data as a second parameter to the `.api` function for a `POST`
+
+** NOTE: You have to pass XML data in your posts, which is... weird**
+
+```js
+FantasySports
+    .request(req, res)
+    .api('http://fantasysports.yahooapis.com/fantasy/v2/league/LEAGUEID/transactions?format=json', '<?xml version="1.0" encoding="UTF-8" ?>' +
+'<fantasy_content>' +
+    '<transaction>' +
+        '<type>drop</type>' +
+        '<player>' +
+            '<player_key>331.p.24869</player_key>' +
+            '<transaction_data>' +
+                '<type>drop</type>' +
+                '<source_team_key>331.l.198983.t.2</source_team_key>' +
+            '</transaction_data>' +
+        '</player>' +
+    '</transaction>' +
+'</fantasy_content>')
+    .done(function(data) {
+        res.json(data);
+    }, function(err) {
+        res.json(err);
+    });
+```
+
+You can also specify the type as well
+
+```js
+FantasySports
+    .request(req, res)
+    .api('http://fantasysports.yahooapis.com/fantasy/v2/league/LEAGUEID/transactions?format=json', 'PUT', XMLDATA
+    .done(function(data) {
+        res.json(data);
+    }, function(err) {
+        res.json(err);
+    });
+```
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
