@@ -220,5 +220,47 @@ describe("FantasySports", function() {
 
             FantasySports.auth.getOAuth.restore();
         });
+
+        it("should accept puts", function () {
+            var request = {
+                    session: { 
+                        oauthAccessToken: "abc123"
+                    }
+                },
+                response = {};
+
+            sinon.stub(FantasySports.auth, "getOAuth")
+                .returns({
+                    put: function(url, accessToken, accessTokenSecret, data, dataType, callback) {
+                        callback(null, {
+                            success: true
+                        });
+                    }
+                });
+
+            FantasySports
+                .request(request, response)
+                .api("users;use_login=1/games;game_keys=nfl/leagues?format=json", "PUT", {
+                    fantasy_content: {
+                    roster: {
+                        coverage_type: "week",
+                        week: "1",
+                        players: [
+                            {
+                                player: {
+                                    player_key: "123",
+                                    position: "BN"
+                                }
+                            }
+                        ]
+                    }
+                }
+                })
+                .done(function(data) {  
+                    expect(data.success).to.be.ok();
+                });
+
+            FantasySports.auth.getOAuth.restore();
+        });
     });
 });
